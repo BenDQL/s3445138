@@ -204,7 +204,7 @@
         const bike = new buzz.sound("sound/bike.mp3");
 
         window.onload = () => {
-            document.getElementById('img1').onmouseover = (event) => {
+            document.getElementById('img1').onclick = (event) => {
                 event.target.src = "img/radio_1.png"
                 event.target.className = 'flip-image';
                 radio.play();
@@ -215,7 +215,7 @@
                 radio.stop();
             }
 
-            document.getElementById('img4').onmouseover = (event) => {
+            document.getElementById('img4').onclick = (event) => {
                 event.target.src = "img/bell_1.png"
                 event.target.className = 'shake-image';
                 bell.play();
@@ -226,7 +226,7 @@
                 bell.stop();
             }
 
-            document.getElementById('img2').onmouseover = (event) => {
+            document.getElementById('img2').onclick = (event) => {
                 event.target.src = "img/game_1.png"
                 event.target.className = 'pulse-image';
                 game.play();
@@ -237,7 +237,7 @@
                 game.stop();
             }
 
-            document.getElementById('img3').onmouseover = (event) => {
+            document.getElementById('img3').onclick = (event) => {
                 event.target.src = "img/adsl_1.png"
                 event.target.className = 'scale-fade-image';
                 adsl.play();
@@ -248,7 +248,7 @@
                 adsl.stop();
             }
 
-            document.getElementById('img7').onmouseover = (event) => {
+            document.getElementById('img7').onclick = (event) => {
                 event.target.src = "img/fireworks_1.png"
                 event.target.className = 'fade-image';
                 firework.play();
@@ -258,7 +258,7 @@
                 event.target.src = "img/firework.png"
                 firework.stop();
             }
-            document.getElementById('img5').onmouseover = (event) => {
+            document.getElementById('img5').onclick = (event) => {
                 event.target.src = "img/cicada_1.png"
                 event.target.className = 'shake-image';
                 cicada.play();
@@ -269,7 +269,7 @@
                 cicada.stop();
             }
 
-            document.getElementById('img6').onmouseover = (event) => {
+            document.getElementById('img6').onclick = (event) => {
                 event.target.src = "img/fan_1.png"
                 event.target.className = 'rotate-image';
                 fan.play();
@@ -281,7 +281,7 @@
                 fan.stop();
             }
 
-            document.getElementById('img8').onmouseover = (event) => {
+            document.getElementById('img8').onclick = (event) => {
                 event.target.src = "img/tolls_1.png"
                 event.target.className = 'pulse-quick-image';
                 tolls.play();
@@ -292,7 +292,7 @@
                 tolls.stop();
             }
 
-            document.getElementById('img9').onmouseover = (event) => {
+            document.getElementById('img9').onclick = (event) => {
                 event.target.src = "img/bike_1.png"
                 event.target.className = 'bounce-image';
                 bike.play();
