@@ -1,0 +1,311 @@
+<html>
+
+<head>
+    <title>Hello! Welcome to my webpage!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.2.0/buzz.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .image-container {
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .rotate-image {
+            animation: rotateImg 1s linear infinite;
+        }
+
+        .shake-image {
+            animation: shakeImg 1s linear infinite;
+        }
+
+        .pulse-image {
+            animation: pulseImg 1s linear infinite;
+        }
+
+        .pulse-quick-image {
+            animation: pulseImg 0.5s linear infinite;
+        }
+
+        .scale-fade-image {
+            animation: scaleFadeImg 1s linear infinite;
+        }
+
+        .fade-image {
+            animation: fadeImg 0.2s linear infinite;
+        }
+
+        .flip-image {
+            animation: flipImg 2s linear infinite;
+        }
+
+        .bounce-image {
+            animation: bounceImg 1s linear infinite;
+        }
+
+        @keyframes rotateImg {
+            0% {
+                transform: rotate(0deg) scale(1.2);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1.2);
+            }
+        }
+
+        @keyframes shakeImg {
+            0% {
+                transform: rotate(-15deg) scale(1.2);
+            }
+
+            4% {
+                transform: rotate(15deg) scale(1.2);
+            }
+
+            8%,
+            24% {
+                transform: rotate(-18deg) scale(1.2);
+            }
+
+            12%,
+            28% {
+                transform: rotate(18deg) scale(1.2);
+            }
+
+            16% {
+                transform: rotate(-22deg) scale(1.2);
+            }
+
+            20% {
+                transform: rotate(22deg) scale(1.2);
+            }
+
+            32% {
+                transform: rotate(-12deg) scale(1.2);
+            }
+
+            36% {
+                transform: rotate(12deg) scale(1.2);
+            }
+
+            40%,
+            100% {
+                transform: rotate(0deg) scale(1.2);
+            }
+        }
+
+        @keyframes pulseImg {
+
+            0%,
+            90% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes scaleFadeImg {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes fadeImg {
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes flipImg {
+            50% {
+                transform: rotate3d(0, 1, 0, -180deg);
+            }
+        }
+
+        @keyframes bounceImg {
+            0% {
+                transform: scale(1, 1) translateY(0);
+            }
+
+            10% {
+                transform: scale(1.1, 0.9) translateY(0);
+            }
+
+            30% {
+                transform: scale(0.9, 1.1) translateY(-0.5em);
+            }
+
+            50% {
+                transform: scale(1.05, 0.95) translateY(0);
+            }
+
+            57% {
+                transform: scale(1, 1) translateY(-0.125em);
+            }
+
+            64% {
+                transform: scale(1, 1) translateY(0);
+            }
+
+            100% {
+                transform: scale(1, 1) translateY(0);
+            }
+        }
+    </style>
+
+    <div class="content">
+        <div class="image-container"><img id="img1" src="img/radio.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img2" src="img/game.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img3" src="img/adsl.png" height="200" width="200" /></div>
+        <div class="image-container"><img id="img4" src="img/bell.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img5" src="img/cicada.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img6" src="img/fan.png" height="200" width="200" /></div>
+        <div class="image-container"><img id="img7" src="img/firework.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img8" src="img/tolls.png" height="200" width="200" />
+        </div>
+        <div class="image-container"><img id="img9" src="img/bike.png" height="200" width="200" /></div>
+    </div>
+
+    <script>
+        const radio = new buzz.sound("sound/radio.mp3");
+        const game = new buzz.sound("sound/game.mp3");
+        const fan = new buzz.sound("sound/fan.mp3");
+        const tolls = new buzz.sound("sound/tolls.mp3");
+        const cicada = new buzz.sound("sound/cicada.mp3");
+        const adsl = new buzz.sound("sound/adsl.mp3");
+        const firework = new buzz.sound("sound/fireworks.mp3");
+        const bell = new buzz.sound("sound/bell.mp3");
+        const bike = new buzz.sound("sound/bike.mp3");
+
+        window.onload = () => {
+            document.getElementById('img1').onmouseover = (event) => {
+                event.target.src = "img/radio_1.png"
+                event.target.className = 'flip-image';
+                radio.play();
+            }
+            document.getElementById('img1').onmouseout = (event) => {
+                event.target.classList.remove("flip-image");
+                event.target.src = "img/radio.png";
+                radio.stop();
+            }
+
+            document.getElementById('img4').onmouseover = (event) => {
+                event.target.src = "img/bell_1.png"
+                event.target.className = 'shake-image';
+                bell.play();
+            }
+            document.getElementById('img4').onmouseleave = (event) => {
+                event.target.classList.remove("shake-image");
+                event.target.src = "img/bell.png";
+                bell.stop();
+            }
+
+            document.getElementById('img2').onmouseover = (event) => {
+                event.target.src = "img/game_1.png"
+                event.target.className = 'pulse-image';
+                game.play();
+            }
+            document.getElementById('img2').onmouseleave = (event) => {
+                event.target.classList.remove("pulse-image");
+                event.target.src = "img/game.png";
+                game.stop();
+            }
+
+            document.getElementById('img3').onmouseover = (event) => {
+                event.target.src = "img/adsl_1.png"
+                event.target.className = 'scale-fade-image';
+                adsl.play();
+            }
+            document.getElementById('img3').onmouseleave = (event) => {
+                event.target.classList.remove("scale-fade-image");
+                event.target.src = "img/adsl.png"
+                adsl.stop();
+            }
+
+            document.getElementById('img7').onmouseover = (event) => {
+                event.target.src = "img/fireworks_1.png"
+                event.target.className = 'fade-image';
+                firework.play();
+            }
+            document.getElementById('img7').onmouseleave = (event) => {
+                event.target.classList.remove("fade-image");
+                event.target.src = "img/firework.png"
+                firework.stop();
+            }
+            document.getElementById('img5').onmouseover = (event) => {
+                event.target.src = "img/cicada_1.png"
+                event.target.className = 'shake-image';
+                cicada.play();
+            }
+            document.getElementById('img5').onmouseleave = (event) => {
+                event.target.classList.remove("shake-image");
+                event.target.src = "img/cicada.png"
+                cicada.stop();
+            }
+
+            document.getElementById('img6').onmouseover = (event) => {
+                event.target.src = "img/fan_1.png"
+                event.target.className = 'rotate-image';
+                fan.play();
+
+            }
+            document.getElementById('img6').onmouseleave = (event) => {
+                event.target.classList.remove("rotate-image");
+                event.target.src = "img/fan.png"
+                fan.stop();
+            }
+
+            document.getElementById('img8').onmouseover = (event) => {
+                event.target.src = "img/tolls_1.png"
+                event.target.className = 'pulse-quick-image';
+                tolls.play();
+            }
+            document.getElementById('img8').onmouseleave = (event) => {
+                event.target.classList.remove("pulse-quick-image");
+                event.target.src = "img/tolls.png"
+                tolls.stop();
+            }
+
+            document.getElementById('img9').onmouseover = (event) => {
+                event.target.src = "img/bike_1.png"
+                event.target.className = 'bounce-image';
+                bike.play();
+            }
+            document.getElementById('img9').onmouseleave = (event) => {
+                event.target.classList.remove("bounce-image");
+                event.target.src = "img/bike.png";
+                bike.stop();
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
